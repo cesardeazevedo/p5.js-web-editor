@@ -6,6 +6,7 @@ const initialState = {
   linewrap: true,
   lineNumbers: true,
   lintWarning: false,
+  vimMode: false,
   textOutput: false,
   gridOutput: false,
   theme: 'light',
@@ -28,6 +29,8 @@ const preferences = (state = initialState, action) => {
       return Object.assign({}, state, { textOutput: action.value });
     case ActionTypes.SET_GRID_OUTPUT:
       return Object.assign({}, state, { gridOutput: action.value });
+    case ActionTypes.SET_VIM_MODE:
+      return Object.assign({}, state, { vimMode: action.value });
     case ActionTypes.SET_PREFERENCES:
       return action.preferences;
     case ActionTypes.SET_THEME:

@@ -88,6 +88,7 @@ const initialTestState = {
     fontSize: 18,
     autosave: true,
     linewrap: true,
+    vimMode: false,
     lineNumbers: true,
     lintWarning: false,
     textOutput: false,

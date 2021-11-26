@@ -105,6 +105,24 @@ export function setLinewrap(value) {
   };
 }
 
+export function setVimMode(value) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: ActionTypes.SET_VIM_MODE,
+      value
+    });
+    const state = getState();
+    if (state.user.authenticated) {
+      const formParams = {
+        preferences: {
+          vimMode: value
+        }
+      };
+      updatePreferences(formParams, dispatch);
+    }
+  };
+}
+
 export function setLintWarning(value) {
   return (dispatch, getState) => {
     dispatch({

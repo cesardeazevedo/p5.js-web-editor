@@ -22,6 +22,7 @@ class Preferences extends React.Component {
     this.onFontInputSubmit = this.onFontInputSubmit.bind(this);
     this.increaseFontSize = this.increaseFontSize.bind(this);
     this.decreaseFontSize = this.decreaseFontSize.bind(this);
+    this.handleVimMode = this.handleVimMode.bind(this);
     this.setFontSize = this.setFontSize.bind(this);
 
     this.state = {
@@ -86,6 +87,11 @@ class Preferences extends React.Component {
   handleLineNumbers(event) {
     const value = event.target.value === 'true';
     this.props.setLineNumbers(value);
+  }
+
+  handleVimMode(event) {
+    const value = event.target.value === 'true';
+    this.props.setVimMode(value);
   }
 
   render() {
@@ -320,6 +326,39 @@ class Preferences extends React.Component {
                 </label>
               </div>
             </div>
+            <div className="preference">
+              <h4 className="preference__title">
+                {this.props.t('Preferences.VimMode')}
+              </h4>
+              <div className="preference__options">
+                <input
+                  type="radio"
+                  onChange={() => this.props.setVimMode(true)}
+                  aria-label={this.props.t('Preferences.VimModeOnARIA')}
+                  name="vimmode"
+                  id="vimmode-on"
+                  className="preference__radio-button"
+                  value="On"
+                  checked={this.props.vimMode}
+                />
+                <label htmlFor="vimmode-on" className="preference__option">
+                  {this.props.t('Preferences.On')}
+                </label>
+                <input
+                  type="radio"
+                  onChange={() => this.props.setVimMode(false)}
+                  aria-label={this.props.t('Preferences.VimModeOffARIA')}
+                  name="vimmode"
+                  id="vimmode-off"
+                  className="preference__radio-button"
+                  value="Off"
+                  checked={!this.props.vimMode}
+                />
+                <label htmlFor="vimmode-off" className="preference__option">
+                  {this.props.t('Preferences.Off')}
+                </label>
+              </div>
+            </div>
           </TabPanel>
           <TabPanel>
             <div className="preference">
@@ -466,8 +505,10 @@ Preferences.propTypes = {
   gridOutput: PropTypes.bool.isRequired,
   setTextOutput: PropTypes.func.isRequired,
   setGridOutput: PropTypes.func.isRequired,
+  vimMode: PropTypes.bool.isRequired,
   lintWarning: PropTypes.bool.isRequired,
   setLintWarning: PropTypes.func.isRequired,
+  setVimMode: PropTypes.func.isRequired,
   theme: PropTypes.string.isRequired,
   setTheme: PropTypes.func.isRequired,
   autocloseBracketsQuotes: PropTypes.bool.isRequired,

@@ -37,6 +37,7 @@ describe('<Preferences />', () => {
     autocloseBracketsQuotes: false,
     linewrap: false,
     lineNumbers: false,
+    vimMode: false,
     theme: 'contrast',
     lintWarning: false,
     textOutput: false,
@@ -48,6 +49,7 @@ describe('<Preferences />', () => {
     setLinewrap: jest.fn(),
     setLineNumbers: jest.fn(),
     setTheme: jest.fn(),
+    setVimMode: jest.fn(),
     setLintWarning: jest.fn(),
     setTextOutput: jest.fn(),
     setGridOutput: jest.fn(),
@@ -535,6 +537,29 @@ describe('<Preferences />', () => {
           false
         );
       });
+    });
+  });
+
+  describe('vimMode toggle, starting at false', () => {
+    beforeAll(() => {
+      props.vimMode = false;
+    });
+
+    it('vimMode toggle, starting at false', () => {
+      // render the component with vimMode prop set to false
+      act(() => {
+        subject();
+      });
+
+      // get ahold of the radio buttons for toggling vim mode settings
+      const vimModeRadioFalse = screen.getByRole('radio', {
+        name: /Vim Mode Off/i
+      });
+      const vimModeRadioTrue = screen.getByRole('radio', {
+        name: /Vim Mode On/i
+      });
+
+      testToggle(vimModeRadioFalse, vimModeRadioTrue, props.setVimMode, true);
     });
   });
 

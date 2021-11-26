@@ -21,6 +21,7 @@ import 'codemirror/addon/fold/foldcode';
 import 'codemirror/addon/fold/foldgutter';
 import 'codemirror/addon/fold/indent-fold';
 import 'codemirror/addon/comment/comment';
+import 'codemirror/keymap/vim';
 import 'codemirror/keymap/sublime';
 import 'codemirror/addon/search/searchcursor';
 import 'codemirror/addon/search/matchesonscrollbar';
@@ -105,7 +106,7 @@ class Editor extends React.Component {
       foldGutter: true,
       foldOptions: { widget: '\u2026' },
       gutters: ['CodeMirror-foldgutter', 'CodeMirror-lint-markers'],
-      keyMap: 'sublime',
+      keyMap: this.props.vimMode ? 'vim' : 'sublime',
       highlightSelectionMatches: true, // highlight current search match
       matchBrackets: true,
       emmet: {
@@ -244,6 +245,9 @@ class Editor extends React.Component {
     }
     if (this.props.lineNumbers !== prevProps.lineNumbers) {
       this._cm.setOption('lineNumbers', this.props.lineNumbers);
+    }
+    if (this.props.vimMode !== prevProps.vimMode) {
+      this._cm.setOption('keyMap', this.props.vimMode ? 'vim' : 'sublime');
     }
     if (
       this.props.autocloseBracketsQuotes !== prevProps.autocloseBracketsQuotes
@@ -441,6 +445,7 @@ Editor.propTypes = {
   lineNumbers: PropTypes.bool.isRequired,
   lintWarning: PropTypes.bool.isRequired,
   linewrap: PropTypes.bool.isRequired,
+  vimMode: PropTypes.bool.isRequired,
   lintMessages: PropTypes.arrayOf(
     PropTypes.shape({
       severity: PropTypes.string.isRequired,

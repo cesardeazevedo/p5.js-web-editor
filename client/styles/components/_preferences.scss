@@ -9,8 +9,8 @@
   display: flex;
   flex-direction: column;
   outline: none;
-  height: calc(80vh - #{65 / $base-font-size}rem);
-  max-height: #{460 / $base-font-size}rem;
+  height: calc(85vh - #{65 / $base-font-size}rem);
+  max-height: #{480 / $base-font-size}rem;
   & .react-tabs {
     max-height: 100%;
     display: flex;

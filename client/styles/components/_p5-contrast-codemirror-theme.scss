@@ -145,3 +145,7 @@ $p5-contrast-activeline: #999999;
   // background-color: $medium-dark;
   outline: #{1 / $base-font-size}rem solid $p5-contrast-white;
 }
+
+.cm-s-p5-contrast .cm-fat-cursor-mark {
+  background-color: #F5DC23;
+}

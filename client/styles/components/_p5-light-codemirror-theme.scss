@@ -143,3 +143,7 @@ $p5-light-activeline: rgb(207, 207, 207);
 .cm-s-p5-light .CodeMirror-selectedtext {
   background-color: $medium-light;
 }
+
+.cm-s-p5-light .cm-fat-cursor-mark {
+  background-color:#D52889;
+}

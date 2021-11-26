@@ -70,6 +70,7 @@ export const DELETE_FILE = 'DELETE_FILE';
 export const SET_AUTOSAVE = 'SET_AUTOSAVE';
 export const SET_LINEWRAP = 'SET_LINEWRAP';
 export const SET_LINT_WARNING = 'SET_LINT_WARNING';
+export const SET_VIM_MODE = 'SET_VIM_MODE';
 export const SET_PREFERENCES = 'SET_PREFERENCES';
 export const SET_TEXT_OUTPUT = 'SET_TEXT_OUTPUT';
 export const SET_GRID_OUTPUT = 'SET_GRID_OUTPUT';

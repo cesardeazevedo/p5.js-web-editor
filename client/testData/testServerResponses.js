@@ -12,6 +12,7 @@ export const userResponse = {
     isTabIndent: false,
     autosave: true,
     linewrap: true,
+    vimMode: false,
     lintWarning: false,
     textOutput: false,
     gridOutput: false,

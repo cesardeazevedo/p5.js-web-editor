@@ -276,6 +276,8 @@ class IDEView extends React.Component {
               autosave={this.props.preferences.autosave}
               linewrap={this.props.preferences.linewrap}
               lineNumbers={this.props.preferences.lineNumbers}
+              vimMode={this.props.preferences.vimMode}
+              setVimMode={this.props.setVimMode}
               setLineNumbers={this.props.setLineNumbers}
               setAutosave={this.props.setAutosave}
               setLinewrap={this.props.setLinewrap}
@@ -510,6 +512,7 @@ IDEView.propTypes = {
     linewrap: PropTypes.bool.isRequired,
     lineNumbers: PropTypes.bool.isRequired,
     lintWarning: PropTypes.bool.isRequired,
+    vimMode: PropTypes.bool.isRequired,
     textOutput: PropTypes.bool.isRequired,
     gridOutput: PropTypes.bool.isRequired,
     theme: PropTypes.string.isRequired,
@@ -523,6 +526,7 @@ IDEView.propTypes = {
   setAutosave: PropTypes.func.isRequired,
   setLineNumbers: PropTypes.func.isRequired,
   setLinewrap: PropTypes.func.isRequired,
+  setVimMode: PropTypes.func.isRequired,
   setLintWarning: PropTypes.func.isRequired,
   setTextOutput: PropTypes.func.isRequired,
   setGridOutput: PropTypes.func.isRequired,
